@@ -4,9 +4,18 @@
 const TEXT = {
   ar: {
     navShop: "المنتجات", navCustom: "طلب خاص", navDelivery: "التوصيل", navAbout: "من نحن", navContact: "تواصل",
-    heroTitle: "ورد يدوي ما بيذبل، وقطع مضيئة بتحكي عنك",
-    heroLead: "كل قطعة مصنوعة باليد في الأردن – باقات، قناديل مضيئة، توزيعات للمناسبات وبوكسات هدايا. نصمّم حسب ذوقك وألوانك.",
-    browse: "تصفّح المنتجات", customCta: "اطلب تصميم خاص", handmade: "صُنع يدوياً",
+    pill: "صُنع يدوياً في الأردن", heroA: "ورد يدوي", heroB: "ما بيذبل", heroC: "وقطع مضيئة بتحكي عنك",
+    heroLead: "باقات، قناديل مضيئة، توزيعات للمناسبات وبوكسات هدايا – كل قطعة بنصنعها بإيدينا بالألوان اللي بتحبها.",
+    browse: "تصفّح المنتجات", customCta: "اطلب تصميم خاص", handmade: "هدية بتعيش سنين",
+    st1: "صناعة يدوية", st2: "تصميم مختلف", st3: "توصيل", st3b: "كل الأردن",
+    catsTitle: "تسوّق حسب الفئة", catCount: (n) => `${n} قطعة`,
+    marquee: ["باقات شانيل", "قناديل مضيئة", "توزيعات يوم المعلم", "هدايا أعياد الميلاد", "توزيعات أعراس", "ديكور يدوي"],
+    w1d: "كل وردة بتنلف بالإيد، قطعة قطعة.", w2d: "اختار الألوان والعبارة والحجم.", w3d: "قناديل وأباجورات بنور دافي.",
+    w4d: "للمدارس والأعراس والتخرج.", w5d: "بتوصلك جاهزة تقدّميها.", w6d: "أو استلام شخصي.",
+    galleryTitle: "من شغلنا", moreIg: "شوف أكثر على إنستغرام",
+    ctaTitle: "جاهز تفاجئ حدا بتحبه؟", ctaText: "احكيلنا شو ببالك، ومنساعدك تختار أو نصمملك قطعة خاصة.",
+    footText: "ورد يدوي وقطع مضيئة وهدايا، مصنوعة بحب في الأردن.", footLinks: "روابط", footFollow: "تابعنا",
+    perk1: "صناعة يدوية – الألوان حسب طلبك", perk2: "توصيل لكل الأردن أو استلام شخصي", perk3: "الدفع عند الاستلام أو CliQ",
     f1t: "ما بيذبل", f1d: "ورد من خيوط الشانيل يدوم سنين",
     f2t: "حسب طلبك", f2d: "اختار الألوان والكمية والمناسبة",
     f3t: "توصيل بالأردن", f3d: "لكل المحافظات أو استلام شخصي",
@@ -14,7 +23,7 @@ const TEXT = {
     sortDefault: "الترتيب الافتراضي", sortLow: "السعر: من الأقل", sortHigh: "السعر: من الأعلى", sortName: "الاسم",
     countText: (n) => `عدد المنتجات: ${n}`,
     noResults: "ما في نتائج. جرّب كلمة ثانية أو اطلب تصميم خاص.",
-    orderNow: "اطلب الآن", details: "التفاصيل", addCart: "أضف للسلة", added: "انضاف للسلة ✓",
+    orderNow: "اطلب الآن", details: "التفاصيل", addCart: "أضف للسلة", addShort: "أضف", added: "انضاف للسلة ✓",
     ask: "اسأل عن السعر", currency: "د.أ",
     customTitle: "الطلب الخاص",
     customSub: "صمّم قطعتك بالألوان والحجم اللي بدك ياهم، وبنبعتلك السعر على واتساب.",
@@ -42,8 +51,9 @@ const TEXT = {
     about2: "ورودنا ما بتذبل، وقطعنا المضيئة زي قنديل البحر واللوتس بتحوّل أي زاوية لمكان دافي. منعمل باقات، توزيعات مناسبات، ديكور وبوكسات هدايا بالألوان اللي بتحبها.",
     whyTitle: "ليش Lolyra؟",
     w1: "صناعة يدوية بتفاصيل دقيقة", w2: "ألوان وتصاميم حسب طلبك", w3: "قطع مضيئة ما بتلاقيها بمكان ثاني",
-    w4: "توزيعات بكميات للمدارس والمناسبات", w5: "تغليف جاهز للإهداء", w6: "توصيل لكل محافظات الأردن",
-    contactTitle: "تواصل معنا", waChat: "واتساب",
+    w4: "توزيعات بكميات", w5: "تغليف جاهز للإهداء", w6: "توصيل لكل محافظات الأردن",
+    contactTitle: "تواصل معنا", waChat: "راسلنا على واتساب",
+    s1: "عبّي التفاصيل: النوع، الألوان والمناسبة", s2: "اضغط إرسال – بتنفتح محادثة واتساب جاهزة", s3: "نتفق على السعر والموعد ونبلّش نشتغل",
     cartTitle: "سلة الطلبات", cartEmpty: "السلة فاضية. أضف منتجات من المتجر.", sendCart: "أرسل الطلب عبر واتساب",
     remove: "حذف", total: "المجموع", someAsk: "بعض الأسعار بنأكدها على واتساب",
     cliqAlias: (a) => `اسم CliQ: ${a}`,
@@ -57,9 +67,18 @@ const TEXT = {
   },
   en: {
     navShop: "Shop", navCustom: "Custom order", navDelivery: "Delivery", navAbout: "About", navContact: "Contact",
-    heroTitle: "Handmade flowers that never wilt, and pieces that glow",
-    heroLead: "Every piece is handmade in Jordan – bouquets, light-up lamps, occasion giveaways and gift boxes. Made in your colors and style.",
-    browse: "Browse products", customCta: "Request a custom design", handmade: "Handmade",
+    pill: "Handmade in Jordan", heroA: "Handmade flowers", heroB: "that never wilt", heroC: "and pieces that glow",
+    heroLead: "Bouquets, light-up lamps, occasion giveaways and gift boxes – every piece made by hand, in the colors you love.",
+    browse: "Browse products", customCta: "Request a custom design", handmade: "A gift that lasts",
+    st1: "Handmade", st2: "Designs", st3: "Delivery", st3b: "All Jordan",
+    catsTitle: "Shop by category", catCount: (n) => `${n} pieces`,
+    marquee: ["Chenille bouquets", "Glowing lamps", "Teacher's Day favors", "Birthday gifts", "Wedding favors", "Handmade decor"],
+    w1d: "Every flower is shaped by hand.", w2d: "Pick colors, message and size.", w3d: "Lamps with a warm glow.",
+    w4d: "For schools, weddings and graduations.", w5d: "Arrives ready to give.", w6d: "Or pick it up yourself.",
+    galleryTitle: "From our studio", moreIg: "See more on Instagram",
+    ctaTitle: "Ready to surprise someone you love?", ctaText: "Tell us what you have in mind – we'll help you choose or design something special.",
+    footText: "Handmade flowers, glowing pieces and gifts, made with love in Jordan.", footLinks: "Links", footFollow: "Follow us",
+    perk1: "Handmade – colors made to order", perk2: "Delivery across Jordan or pickup", perk3: "Cash on delivery or CliQ",
     f1t: "Never wilts", f1d: "Chenille flowers that last for years",
     f2t: "Made for you", f2d: "Pick colors, quantity and occasion",
     f3t: "Delivery in Jordan", f3d: "To every governorate, or pick up",
@@ -67,7 +86,7 @@ const TEXT = {
     sortDefault: "Default order", sortLow: "Price: low to high", sortHigh: "Price: high to low", sortName: "Name",
     countText: (n) => `${n} products`,
     noResults: "No results. Try another word or request a custom design.",
-    orderNow: "Order now", details: "Details", addCart: "Add to cart", added: "Added to cart ✓",
+    orderNow: "Order now", details: "Details", addCart: "Add to cart", addShort: "Add", added: "Added to cart ✓",
     ask: "Ask for price", currency: "JD",
     customTitle: "Custom order",
     customSub: "Design your piece in the colors and size you want, and we'll send you the price on WhatsApp.",
@@ -95,8 +114,9 @@ const TEXT = {
     about2: "Our flowers never wilt, and our light-up pieces like the jellyfish and lotus lamps turn any corner warm. We make bouquets, occasion giveaways, decor and gift boxes in the colors you love.",
     whyTitle: "Why Lolyra?",
     w1: "Handmade with fine detail", w2: "Colors and designs made to order", w3: "Light-up pieces you won't find elsewhere",
-    w4: "Bulk giveaways for schools and events", w5: "Gift-ready wrapping", w6: "Delivery across Jordan",
-    contactTitle: "Contact us", waChat: "WhatsApp",
+    w4: "Bulk giveaways", w5: "Gift-ready wrapping", w6: "Delivery across Jordan",
+    contactTitle: "Contact us", waChat: "Message us on WhatsApp",
+    s1: "Fill in the details: type, colors, occasion", s2: "Tap send – a WhatsApp chat opens ready to go", s3: "We agree on price and date, then start making it",
     cartTitle: "Your cart", cartEmpty: "Your cart is empty. Add products from the shop.", sendCart: "Send order on WhatsApp",
     remove: "Remove", total: "Subtotal", someAsk: "Some prices are confirmed on WhatsApp",
     cliqAlias: (a) => `CliQ alias: ${a}`,
@@ -208,20 +228,65 @@ function renderGrid() {
   $("empty").hidden = list.length > 0;
   list.forEach((p) => {
     grid.append(el("article", { class: "card" },
-      el("button", { type: "button", class: "card-img", "aria-label": t().details, onclick: () => openProduct(p.id) },
+      el("button", { type: "button", class: "card-img", "aria-label": `${t().details}: ${p[lang]}`, onclick: () => openProduct(p.id) },
         el("img", { src: p.img, alt: p[lang], loading: "lazy", width: "750", height: "1000" }),
         p.imgs.length > 1 ? el("span", { class: "photos-tag" }, `📷 ${p.imgs.length}`) : "",
         el("span", { class: "code-tag" }, p.code)),
       el("div", { class: "card-body" },
         el("span", { class: "card-cat" }, catName(p.cat)),
-        el("h3", {}, p[lang]),
+        el("h3", { onclick: () => openProduct(p.id) }, p[lang]),
         el("p", { class: "desc" }, p["d" + lang]),
-        el("span", { class: p.price ? "price" : "price ask" }, priceText(p)),
-        el("div", { class: "card-actions" },
-          el("button", { type: "button", class: "btn btn-primary", onclick: () => addToCart(p.id) }, t().addCart),
-          el("a", { class: "btn btn-wa", target: "_blank", rel: "noopener",
-            href: waLink(t().msgProduct(`${both(p)} (${p.code})`)) }, t().orderNow)),
-        el("button", { type: "button", class: "link", onclick: () => openProduct(p.id) }, t().details))));
+        el("div", { class: "card-foot" },
+          el("span", { class: p.price ? "price" : "price ask" }, priceText(p)),
+          el("button", { type: "button", class: "add-btn", onclick: () => addToCart(p.id) },
+            svgUse("cart-icon"), el("span", { class: "long" }, t().addCart), el("span", { class: "short" }, t().addShort)),
+          el("a", { class: "wa-mini", target: "_blank", rel: "noopener", "aria-label": t().orderNow,
+            href: waLink(t().msgProduct(`${both(p)} (${p.code})`)) }, svgUse("wa-icon"))))));
+  });
+}
+
+function svgUse(id) {
+  const ns = "http://www.w3.org/2000/svg";
+  const s = document.createElementNS(ns, "svg");
+  s.setAttribute("viewBox", "0 0 24 24");
+  s.setAttribute("aria-hidden", "true");
+  const u = document.createElementNS(ns, "use");
+  u.setAttribute("href", `#${id}`);
+  s.append(u);
+  return s;
+}
+
+// ---------- categories, marquee, gallery ----------
+const CAT_IMG = { lights: "glow-lamps", bouquets: "lily-mug-pink", decor: "sunflower-mirror", giveaways: "wedding-tulips", gifts: "gift-bag-1" };
+
+function renderCatTiles() {
+  const box = $("catTiles");
+  box.innerHTML = "";
+  CATEGORIES.filter((c) => c.id !== "all").forEach((c) => {
+    const n = PRODUCTS.filter((p) => p.cat === c.id).length;
+    const src = `${P}${CAT_IMG[c.id] || ""}.jpg`;
+    box.append(el("button", { type: "button", class: "cat-tile",
+      onclick: () => { activeCat = c.id; renderShopControls(); renderGrid(); $("shop").scrollIntoView(); } },
+      el("span", { class: "ring" }, el("img", { src, alt: "", loading: "lazy", width: "300", height: "300" })),
+      el("b", {}, c[lang]), el("small", {}, t().catCount(n))));
+  });
+}
+
+function renderMarquee() {
+  const words = t().marquee;
+  const track = $("marquee");
+  track.innerHTML = "";
+  [...words, ...words, ...words, ...words].forEach((w) => track.append(el("span", {}, w)));
+}
+
+const GALLERY = ["glow-lamps", "teal-set", "tulip-crate-1", "lily-mugs", "gift-bag-2", "key-favors-2", "stitch-glow-1", "chocolate-favors"];
+function renderGallery() {
+  const box = $("gallery");
+  box.innerHTML = "";
+  GALLERY.forEach((g) => {
+    const p = PRODUCTS.find((x) => x.imgs.some((i) => i.endsWith(`/${g}.jpg`)));
+    box.append(el("a", { href: "#", onclick: (e) => { e.preventDefault(); if (p) openProduct(p.id); } },
+      el("img", { src: `${P}${g}.jpg`, alt: p ? p[lang] : "", loading: "lazy", width: "750", height: "1000" })));
   });
 }
 
@@ -276,6 +341,10 @@ function setQty(id, qty) {
 function renderCart() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
   $("cartCount").textContent = count;
+  if (!$("cartCount").hidden && String(count) !== renderCart.last) {
+    $("cartCount").classList.remove("bump"); void $("cartCount").offsetWidth; $("cartCount").classList.add("bump");
+  }
+  renderCart.last = String(count);
   $("cartCount").hidden = count === 0;
   const list = $("cartList");
   list.innerHTML = "";
@@ -397,8 +466,11 @@ function sendCustom(e) {
 function renderDelivery() {
   const box = $("areas");
   box.innerHTML = "";
-  DELIVERY.forEach((a) => box.append(el("div", { class: "mini" },
-    el("b", {}, a[lang]), el("span", {}, `${t().feeLabel}: ${feeText(a)}`))));
+  DELIVERY.forEach((a) => {
+    const pin = svgUse("pin-icon");
+    box.append(el("div", { class: "area" }, pin,
+      el("div", {}, el("b", {}, a[lang]), el("span", {}, `${t().feeLabel}: ${feeText(a)}`))));
+  });
   $("prepText").textContent = t().prepInfo(STORE.prepDays);
 }
 
@@ -417,7 +489,10 @@ function applyLang() {
   });
   $("langBtn").textContent = tx.lang;
   const general = waLink(tx.msgGeneral);
-  ["contactWa", "waFloat"].forEach((id) => { $(id).href = general; });
+  ["contactWa", "waFloat", "footWa"].forEach((id) => { $(id).href = general; });
+  renderMarquee();
+  renderCatTiles();
+  renderGallery();
   renderShopControls();
   renderGrid();
   renderCustomForm();
@@ -448,9 +523,35 @@ document.querySelectorAll("dialog").forEach((d) => {
   });
 });
 
-$("igLink").href = STORE.instagram;
-$("customIg").href = STORE.instagram;
-$("fbLink").href = STORE.facebook;
+["igLink", "customIg", "galleryIg", "footIg"].forEach((id) => { $(id).href = STORE.instagram; });
+["fbLink", "footFb"].forEach((id) => { $(id).href = STORE.facebook; });
+$("statCount").textContent = `${PRODUCTS.length}+`;
+
+// Phone menu
+const nav = $("nav");
+$("menuBtn").addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  $("menuBtn").setAttribute("aria-expanded", String(open));
+});
+nav.addEventListener("click", (e) => {
+  if (e.target.closest("a")) { nav.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); }
+});
+
+// Top bar shadow once the page scrolls
+const onScroll = () => $("topbar").classList.toggle("scrolled", window.scrollY > 8);
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+// Fade sections in as they scroll into view
+document.documentElement.classList.add("js");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+    if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((n) => io.observe(n));
+} else {
+  document.querySelectorAll(".reveal").forEach((n) => n.classList.add("in"));
+}
 $("year").textContent = new Date().getFullYear();
 
 applyLang();
