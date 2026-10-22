@@ -209,7 +209,8 @@ function renderGrid() {
   list.forEach((p) => {
     grid.append(el("article", { class: "card" },
       el("button", { type: "button", class: "card-img", "aria-label": t().details, onclick: () => openProduct(p.id) },
-        el("img", { src: p.img, alt: p[lang], loading: "lazy", width: "600", height: "600" }),
+        el("img", { src: p.img, alt: p[lang], loading: "lazy", width: "750", height: "1000" }),
+        p.imgs.length > 1 ? el("span", { class: "photos-tag" }, `📷 ${p.imgs.length}`) : "",
         el("span", { class: "code-tag" }, p.code)),
       el("div", { class: "card-body" },
         el("span", { class: "card-cat" }, catName(p.cat)),
@@ -238,6 +239,17 @@ function fillModal() {
   const p = modalProduct;
   if (!p) return;
   $("mImg").src = p.img; $("mImg").alt = p[lang];
+  const thumbs = $("mThumbs");
+  thumbs.innerHTML = "";
+  thumbs.hidden = p.imgs.length < 2;
+  p.imgs.forEach((src, i) => {
+    const b = el("button", { type: "button", "aria-label": `${i + 1}`, "aria-current": String(i === 0),
+      onclick: () => {
+        $("mImg").src = src;
+        thumbs.querySelectorAll("button").forEach((x) => x.setAttribute("aria-current", String(x === b)));
+      } }, el("img", { src, alt: "", width: "56", height: "56" }));
+    thumbs.append(b);
+  });
   $("mCat").textContent = catName(p.cat);
   $("mName").textContent = p[lang];
   $("mCode").textContent = p.code;

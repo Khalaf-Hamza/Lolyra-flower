@@ -81,7 +81,7 @@ button.btn { font: inherit; font-weight: 700; cursor: pointer; }
 .hero-art { position: relative; }
 .hero-art img {
   border-radius: 46% 46% var(--radius) var(--radius);
-  box-shadow: var(--shadow); aspect-ratio: 1; object-fit: cover; width: 100%;
+  box-shadow: var(--shadow); aspect-ratio: 4 / 5; object-fit: cover; width: 100%;
 }
 .badge {
   position: absolute; bottom: 18px; inset-inline-start: -10px;
@@ -117,7 +117,7 @@ button.btn { font: inherit; font-weight: 700; cursor: pointer; }
   transition: transform .2s, box-shadow .2s;
 }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.card img { aspect-ratio: 1; object-fit: cover; width: 100%; background: var(--plum-soft); }
+.card img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; background: var(--plum-soft); }
 .card-body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .card-cat { font-size: .8rem; color: var(--teal); font-weight: 700; }
 .card h3 { font-size: 1.05rem; margin: 0; }
@@ -243,7 +243,13 @@ dialog { border: 0; padding: 0; color: var(--ink); background: var(--paper); }
 dialog::backdrop { background: rgba(47,36,51,.45); }
 .x { position: absolute; top: 8px; inset-inline-end: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,250,244,.92); font-size: 1.4rem; cursor: pointer; z-index: 2; color: var(--ink); }
 .modal { width: min(560px, calc(100% - 32px)); border-radius: var(--radius); overflow: hidden; }
-.modal img { width: 100%; aspect-ratio: 1; object-fit: cover; max-height: 55vh; }
+.modal > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; max-height: 58vh; background: var(--plum-soft); }
+.thumbs { display: flex; gap: 8px; padding: 10px 20px 0; overflow-x: auto; }
+.thumbs[hidden] { display: none; }
+.thumbs button { padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; background: none; cursor: pointer; flex: none; }
+.thumbs button[aria-current="true"] { border-color: var(--plum); }
+.thumbs img { width: 56px; height: 56px; object-fit: cover; display: block; }
+.photos-tag { position: absolute; bottom: 10px; inset-inline-start: 10px; background: rgba(47,36,51,.6); color: #fff; font-size: .75rem; padding: 2px 8px; border-radius: 999px; }
 .modal-body { padding: 16px 20px 20px; display: grid; gap: 6px; }
 .modal-body h3 { margin: 0; font-size: 1.3rem; }
 .modal-body p { margin: 0; color: var(--muted); }
