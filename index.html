@@ -157,10 +157,10 @@
           <label class="check"><input type="checkbox" name="urgent" id="cUrgent"> <span data-i18n="fUrgent">طلب مستعجل (أقل من أسبوع)</span></label>
           <div class="summary" id="cSummary"></div>
           <div class="actions">
-            <button class="btn btn-wa" type="submit">
+            <a class="btn btn-wa" id="customSend" href="#" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-icon"/></svg>
               <span data-i18n="sendCustom">أرسل الطلب عبر واتساب</span>
-            </button>
+            </a>
             <a class="btn btn-ghost" id="customIg" href="#" target="_blank" rel="noopener" data-i18n="openIg">افتح إنستغرام</a>
           </div>
         </form>
@@ -297,10 +297,10 @@
         </fieldset>
         <label><span data-i18n="fNotes">ملاحظات أو فكرة</span><textarea name="notes" rows="2"></textarea></label>
         <div class="summary" id="kSummary"></div>
-        <button class="btn btn-wa wide" type="submit">
+        <a class="btn btn-wa wide" id="cartSend" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-icon"/></svg>
           <span data-i18n="sendCart">أرسل الطلب عبر واتساب</span>
-        </button>
+        </a>
       </form>
     </div>
   </dialog>

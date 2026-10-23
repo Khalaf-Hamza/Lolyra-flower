@@ -386,15 +386,16 @@ function renderCartSummary() {
     row(t().delivery, `${area[lang]} – ${feeText(area)}`));
   if (unknown || total === 0) box.append(el("p", { class: "hint" }, t().someAsk));
   box.append(el("p", { class: "hint" }, t().priceConfirm));
+  $("cartSend").href = waLink(cartMessage());
 }
 
 function row(label, value) {
   return el("div", { class: "srow" }, el("span", {}, label), el("b", {}, value));
 }
 
-function sendCart(e) {
-  e.preventDefault();
-  if (!cart.length) return;
+// The send buttons are plain links kept up to date with the order,
+// so they open WhatsApp even where pop-ups are blocked.
+function cartMessage() {
   const f = $("cartForm");
   const area = areaById(f.area.value);
   const pay = payById((f.querySelector("input[name=kpay]:checked") || {}).value);
@@ -405,7 +406,7 @@ function sendCart(e) {
   if (f.name.value.trim()) lines.push(`${t().lName}: ${f.name.value.trim()}`);
   lines.push(`${t().delivery}: ${area[lang]}`, `${t().payment}: ${pay[lang]}`);
   if (f.notes.value.trim()) lines.push(`${t().lNotes}: ${f.notes.value.trim()}`);
-  window.open(waLink(lines.join("\n")), "_blank", "noopener");
+  return lines.join("\n");
 }
 
 // ---------- custom order ----------
@@ -446,10 +447,10 @@ function renderCustomSummary() {
     row(t().payment, v.pay[lang]),
     el("p", { class: "big" }, t().priceConfirm),
     el("p", { class: "hint strong" }, v.urgent ? t().urgentNote : t().prep(STORE.prepDays)));
+  $("customSend").href = waLink(customMessage());
 }
 
-function sendCustom(e) {
-  e.preventDefault();
+function customMessage() {
   const v = customValues();
   const lines = [t().msgHello, `✨ ${t().msgCustom}:`,
     `${t().lType}: ${v.type}`, `${t().lSize}: ${v.size}`, `${t().lOccasion}: ${v.occasion}`, `${t().qty}: ${v.qty}`];
@@ -459,7 +460,7 @@ function sendCustom(e) {
   if (v.name) lines.push(`${t().lName}: ${v.name}`);
   lines.push(`${t().delivery}: ${v.area[lang]}`, `${t().payment}: ${v.pay[lang]}`);
   if (v.urgent) lines.push(t().lUrgent);
-  window.open(waLink(lines.join("\n")), "_blank", "noopener");
+  return lines.join("\n");
 }
 
 // ---------- delivery ----------
@@ -513,9 +514,10 @@ $("cartBtn").addEventListener("click", () => $("cartDrawer").showModal());
 $("mAdd").addEventListener("click", () => { if (modalProduct) addToCart(modalProduct.id); });
 $("customForm").addEventListener("input", renderCustomSummary);
 $("customForm").addEventListener("change", renderCustomSummary);
-$("customForm").addEventListener("submit", sendCustom);
+$("customForm").addEventListener("submit", (e) => e.preventDefault());
+$("cartForm").addEventListener("input", renderCartSummary);
 $("cartForm").addEventListener("change", renderCartSummary);
-$("cartForm").addEventListener("submit", sendCart);
+$("cartForm").addEventListener("submit", (e) => e.preventDefault());
 
 document.querySelectorAll("dialog").forEach((d) => {
   d.addEventListener("click", (e) => {
