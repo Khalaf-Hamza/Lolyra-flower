@@ -236,12 +236,13 @@ function renderGrid() {
         el("span", { class: "card-cat" }, catName(p.cat)),
         el("h3", { onclick: () => openProduct(p.id) }, p[lang]),
         el("p", { class: "desc" }, p["d" + lang]),
-        el("div", { class: "card-foot" },
-          el("span", { class: p.price ? "price" : "price ask" }, priceText(p)),
+        el("span", { class: p.price ? "price" : "price ask" }, priceText(p)),
+        el("a", { class: "btn btn-order", target: "_blank", rel: "noopener",
+          href: waLink(t().msgProduct(`${both(p)} (${p.code})`)) }, svgUse("wa-icon"), t().orderNow),
+        el("div", { class: "card-sub" },
           el("button", { type: "button", class: "add-btn", onclick: () => addToCart(p.id) },
             svgUse("cart-icon"), el("span", { class: "long" }, t().addCart), el("span", { class: "short" }, t().addShort)),
-          el("a", { class: "wa-mini", target: "_blank", rel: "noopener", "aria-label": t().orderNow,
-            href: waLink(t().msgProduct(`${both(p)} (${p.code})`)) }, svgUse("wa-icon"))))));
+          el("button", { type: "button", class: "link", onclick: () => openProduct(p.id) }, t().details)))));
   });
 }
 
@@ -543,6 +544,16 @@ nav.addEventListener("click", (e) => {
 const onScroll = () => $("topbar").classList.toggle("scrolled", window.scrollY > 8);
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
+
+// Highlight the menu link of the section on screen
+if ("IntersectionObserver" in window) {
+  const links = [...document.querySelectorAll("#nav a")];
+  const spy = new IntersectionObserver((entries) => entries.forEach((en) => {
+    if (!en.isIntersecting) return;
+    links.forEach((l) => l.toggleAttribute("aria-current", l.getAttribute("href") === `#${en.target.id}`));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  links.forEach((l) => { const s = document.querySelector(l.getAttribute("href")); if (s) spy.observe(s); });
+}
 
 // Fade sections in as they scroll into view
 document.documentElement.classList.add("js");
