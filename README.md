@@ -34,3 +34,11 @@ Simple store website for **Lolyra** (lolyra.jo): handmade chenille flowers, ligh
 
 ## Publish (free) on GitHub Pages
 Repo **Settings → Pages → Deploy from a branch**, pick the branch and `/ (root)`, then Save.
+
+## Later (agreed ideas)
+- **Customer reviews**: "Write a review" button opening a simple form (name or city, product, 1–5 stars, message, optional photo).
+  Reviews land in a Google Sheet; the shop approves each one before it shows in a "What customers say" section.
+  Never add made-up reviews; until real ones arrive the section invites the first review.
+  Also: send the review link after each order on WhatsApp, and set up a Google Business profile.
+- **Products from Google Sheets** so the shop can add products without touching code.
+- **GitHub Pages / custom domain** for a permanent public link.
